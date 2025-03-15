@@ -1,0 +1,5 @@
+gunicorn
+django
+djangorestframework
+pylibmc
+# Add other dependencies your application needs

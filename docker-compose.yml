@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - memcached
+    environment:
+      - CACHE_URL=memcached:11211
+
+  memcached:
+    image: memcached:alpine
+    ports:
+      - "11211:11211"
