@@ -2,9 +2,12 @@
 
 Memcached is one of the most popular caching applications. It's fast, it's simple and can be scaled.
 
-I want to test what RPS I get expect from a small node (1GB ram).
-
+I want to test what RPS I can expect from a small node (1GB RAM).
 I also want to see what impact a cluster of nodes would have on performance.
+
+I am thinking to run a test against Memcached directly and then the same but via Django.
+
+Things that I will measure are RPS and average latency.
 
 ## Exploring existing materials online
 
