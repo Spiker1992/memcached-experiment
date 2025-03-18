@@ -24,9 +24,9 @@ for line in lines:
     if 'rusage_user' in line: # Accumulated user time for this process
         total_time = float(line.split()[2])
 
-# Calculate average latency
+# Calculate average latency in milliseconds
 if total_requests > 0:
-    average_latency = total_time / total_requests
-    print(f'Average Latency: {average_latency} seconds')
+    average_latency = (total_time / total_requests) * 1000
+    print(f'Average Latency: {average_latency} ms')
 else:
     print('No requests found')
