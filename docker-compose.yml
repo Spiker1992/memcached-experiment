@@ -9,8 +9,18 @@ services:
       - memcached
     environment:
       - CACHE_URL=memcached:11211
+    mem_limit: 1g
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
 
   memcached:
     image: memcached:alpine
     ports:
       - "11211:11211"
+    mem_limit: 1g
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
