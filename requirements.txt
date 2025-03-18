@@ -1,5 +1,5 @@
 gunicorn
 django
 djangorestframework
-pylibmc
+pymemcache
 # Add other dependencies your application needs
