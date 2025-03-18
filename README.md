@@ -15,8 +15,11 @@ Things that I will measure are RPS and average latency.
 - Within CLI go to the root directory
 - Within root dir run `docker-compose up -d --build`
 - Once docker is up and running, test endpoint can be accessed using `http://localhost:8000/api/cached-data/?format=json`
+- Install Apache Benchmark (refer to the next section)
+- Run `python3 run_ab_test.py` to run the test
+- Pass in `-n` for number of requests and `-c` for concurrency
 
-## Load Testing with Apache Benchmark (ab)
+### Load Testing with Apache Benchmark (ab)
 
 To perform load testing using Apache Benchmark (ab), follow these steps:
 
