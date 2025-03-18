@@ -9,6 +9,33 @@ I am thinking to run a test against Memcached directly and then the same but via
 
 Things that I will measure are RPS and average latency.
 
+## How to run this project
+
+- Have docker running
+- Within CLI go to the root directory
+- Within root dir run `docker-compose up -d --build`
+- Once docker is up and running, test endpoint can be accessed using `http://localhost:8000/api/cached-data/?format=json`
+
+## Load Testing with Apache Benchmark (ab)
+
+To perform load testing using Apache Benchmark (ab), follow these steps:
+
+1. Install Apache Benchmark (ab) if it's not already installed:
+
+```sh
+sudo apt-get install apache2-utils
+```
+
+2. Run the load test against the test endpoint:
+
+```sh
+ab -n 1000 -c 10 http://localhost:8000/api/cached-data/?format=json
+```
+
+- `-n 1000` is the number of requests to perform for the benchmarking session.
+- `-c 10` is the number of multiple requests to perform at a time.
+
+
 ## Exploring existing materials online
 
 - Analysis of Memcached performance
