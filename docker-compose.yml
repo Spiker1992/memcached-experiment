@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   web:
+    container_name: web
     build: .
     ports:
       - "8000:8000"
@@ -16,6 +17,7 @@ services:
           cpus: '2.0'
 
   memcached:
+    container_name: memcached
     image: memcached:alpine
     ports:
       - "11211:11211"
