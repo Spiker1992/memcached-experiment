@@ -87,3 +87,13 @@ https://stackoverflow.com/a/829260
 This comment highlights the benefit of caching really nicely.
 
 "The difference was like 150 requests/second to 30000 requests/second and the database queries dropped to 1-2 per page."
+
+## Journal
+
+### Getting a feel for running tests
+
+I run several tests to see what performance is like. I did multiple tests with different number and concurrency. 
+
+Quickly I saw that the bottleneck is Gunicorn, which is struggling to handle more than 500rps. Whilst memcached RAM didnt shift, however CPU did hit 30%. Memcached latency was at under 0.15ms in all tests that I run.
+
+For the next step I want to break memcached. Be it by increasing RPS that gunicorn can handle and decreasing Memcached performance by adding larger and different data to the memory.
