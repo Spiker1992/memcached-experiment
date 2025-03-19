@@ -96,4 +96,4 @@ I run several tests to see what performance is like. I did multiple tests with d
 
 Quickly I saw that the bottleneck is Gunicorn, which is struggling to handle more than 500rps. Whilst memcached RAM didnt shift, however CPU did hit 30%. Memcached latency was at under 0.15ms in all tests that I run.
 
-For the next step I want to break memcached. Be it by increasing RPS that gunicorn can handle and decreasing Memcached performance by adding larger and different data to the memory.
+For the next step I want to break memcached. Be it by increasing RPS that gunicorn can handle or decreasing Memcached performance by adding larger and different data to the memory.
