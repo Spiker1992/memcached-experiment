@@ -1,13 +1,13 @@
 # Experiments with Memcached
 
-Memcached is one of the most popular caching applications. It's fast, it's simple and can be scaled.
+Memcached is one of the most popular caching applications. It's fast, it's simple and can be scaled easily.
 
-I want to test what RPS I can expect from a small node (1GB RAM).
-I also want to see what impact a cluster of nodes would have on performance.
+What I want to do:
+- test what RPS I can expect from a small node (1GB RAM).
+- see impact a cluster of nodes has on performance.
+- how performance differs between Memcached and Django
 
-I am thinking to run a test against Memcached directly and then the same but via Django.
-
-Things that I will measure are RPS and average latency.
+When running tests I will track two things: RPS and average latency.
 
 ## How to run this project
 
@@ -41,34 +41,49 @@ ab -n 1000 -c 10 http://localhost:8000/api/cached-data/?format=json
 
 ## Exploring existing materials online
 
-- Analysis of Memcached performance
+### Analysis of Memcached performance
+
 https://pages.cs.wisc.edu/~vijayc/papers/memcached.pdf
 
 (I assume it was writen back in Nov 2009 - https://github.com/memcached/memcached/wiki/ReleaseNotes143)
+
 "We look at tuning the e1000 network driver for memcached - Interrupt blanking, where the system is nonresponsive to interrupts for a period of time; Opportunistic
 polling, which switches between polling and interrupts for
 I/O based on the load; We look at modifying the number of
 buffers for transmitting and receiving packets and the delays
 associated with transmitting and receiving packets."
 
-1-4GB RAM
+This was tested on 1-4GB RAM machines
 
-- Example of a benchmark on a larger machine
+### Example of a benchmark on a larger machine
+
 https://memcached.org/blog/persistent-memory/
 
 2x Xeon Cascade Lake CPUs (24 cores, 48 hyperthreads each)
 12 x 16GB (192GB) of DDR4 RAM
 
-- How to benchmark the performance of memcached on ubuntu
+Very nice example of a performance article on this subject
+
+### How to benchmark the performance of memcached on ubuntu
+
 https://medium.com/swlh/the-complete-guide-to-benchmark-the-performance-of-memcached-on-ubuntu-16-04-71edeaf6e740
 
-- Example looking at different caching application within Laravel
+Article shares what tools to use to benchmark Memcached performance on Ubunutu
+
+### Example looking at different caching application within Laravel
+
 https://www.georgebuckingham.com/articles/laravel-cache-driver-performance/
 
-1GB RAM / 1 CPU
+Tests were run on 1GB RAM / 1 CPU machines.
 
-This is more on the lines of what I want to do with Django.
+This is more on the lines of what I want to do but with Django.
 
-- Example of a benefit that caching brings 
+I may borrow authors test setup when I get to simulating traffic.
+
+### Example of a benefit that caching brings 
 
 https://stackoverflow.com/a/829260
+
+This comment highlights the benefit of caching really nicely.
+
+"The difference was like 150 requests/second to 30000 requests/second and the database queries dropped to 1-2 per page."
